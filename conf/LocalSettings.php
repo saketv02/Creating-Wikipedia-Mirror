@@ -78,9 +78,9 @@ $wgObjectCaches['redis'] = array(
 
 
 ## Shared memory settings
-$wgMainCacheType = 'redis';
-$wgSessionCacheType = 'redis';
-$wgMessageCacheType = 'redis';
+$wgMainCacheType = CACHE_NONE;
+$wgSessionCacheType = CACHE_NONE;
+$wgMessageCacheType = CACHE_NONE;
 #$wgParserCacheType = 'redis';
 #$wgCacheDirectory = "./cache/wiki";
 $wgUseLocalMessageCache	= true;
@@ -92,7 +92,7 @@ $wgAntiLockFlags = ALF_NO_LINK_LOCK | ALF_NO_BLOCK_LOCK;
 $wgJobRunRate = 0.001;
 $wgEnableTooltipsAndAccesskeys = false;
 $wgSQLMode = null;
-$wgUseGzip = true;
+$wgUseGzip = false;
 $wgHitcounterUpdateFreq = 500;
 $wgTmpDirectory = "./tmp";
 
