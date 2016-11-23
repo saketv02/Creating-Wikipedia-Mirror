@@ -69,7 +69,7 @@ $wgDBmysql5 = false;
 
 $wgObjectCaches['redis'] = array(
     'class'                => 'RedisBagOStuff',
-    'servers'              => array('127.0.0.1:6379'),
+    'servers'              => array('127.0.0.1:6380'),
     'connectTimeout'    => 1,
     'persistent'        => true,
     // 'password'          => 'secret',
@@ -78,9 +78,9 @@ $wgObjectCaches['redis'] = array(
 
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
-$wgSessionCacheType = CACHE_NONE;
-$wgMessageCacheType = CACHE_NONE;
+$wgMainCacheType = 'redis';
+$wgSessionCacheType = 'redis';
+$wgMessageCacheType = 'redis';
 #$wgParserCacheType = 'redis';
 #$wgCacheDirectory = "./cache/wiki";
 $wgUseLocalMessageCache	= true;
@@ -98,14 +98,14 @@ $wgTmpDirectory = "./tmp";
 
 
 #$wgContentHandlerTextFallback = 'serialize'
-$wgJobTypeConf['default'] = array(
- 	'class'          => '127.0.0.1:6379',
- 	'redisServer'    => '/tmp/redis.sock',
- 	'redisConfig'    => [
-                'connectTimeout' => 1
-        ],
-	'daemonized' => true
- );
+#$wgJobTypeConf['default'] = array(
+# 	'class'          => '127.0.0.1:6379',
+# 	'redisServer'    => '/tmp/redis.sock',
+# 	'redisConfig'    => [
+#                'connectTimeout' => 1
+#        ],
+#	'daemonized' => true
+# );
 #$wgUseFileCache = true;
 #$wgFileCacheDirectory = "/var/www/html/mediawiki/filecache";
 
