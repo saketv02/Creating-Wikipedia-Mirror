@@ -26,7 +26,10 @@ $wgMetaNamespace = "Greek_Wiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = "/mediawiki";
+$wgScriptPath = "";
+$wgArticlePath = "/$1";
+$wgUsePathInfo      = true;
+$wgScriptExtension  = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
 #$wgServer = "0.0.0.0:8080";
@@ -81,8 +84,8 @@ $wgObjectCaches['redis'] = array(
 $wgMainCacheType = 'redis';
 $wgSessionCacheType = 'redis';
 $wgMessageCacheType = 'redis';
-#$wgParserCacheType = 'redis';
-#$wgCacheDirectory = "./cache/wiki";
+$wgParserCacheType = 'redis';
+$wgCacheDirectory = "./cache/wiki";
 $wgUseLocalMessageCache	= true;
 #$wgMemCachedServers = array();
 $wgEnableSidebarCache = true;
@@ -111,7 +114,7 @@ $wgTmpDirectory = "./tmp";
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads = true;
+$wgEnableUploads = false;
 #$wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -159,6 +162,11 @@ $wgDiff3 = "/usr/bin/diff3";
 $wgDefaultSkin = "vector";
 
 
+#Disable External images
+$wgAllowExternalImages = false;
+
+
+
 ##Logging
 
 # Enabled skins.
@@ -199,6 +207,9 @@ ini_set( 'display_errors', 1 );
 $wgShowSQLErrors = true;
 $wgDebugDumpSql  = true;
 $wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
+
+require_once "$IP/extensions/Scribunto/Scribunto.php";
+$wgScribuntoDefaultEngine = 'luastandalone';
 
 
 
